@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/zeliot-software/zeliot/perception/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Cache control: force the browser to re-fetch index.html on every visit.
+      Critical because every Vite build emits new chunk hashes
+      (PerceptionMonitor-BH1wGx69.js → PerceptionMonitor-DjTsudeJ.js etc).
+      A stale index.html references chunks that no longer exist → 404 →
+      "Failed to fetch dynamically imported module" error in the SPA.
+      GitHub Pages doesn't honour _headers files (that's Netlify/Cloudflare),
+      so we set this client-side via meta http-equiv. The hashed assets in
+      /assets/ are still cacheable by the browser's default rules — only
+      this index.html is never cached.
+    -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Xtrusio · Shape How AI Sees Your Brand</title>
+
+    <!-- ─── Matomo (analytics.xtrusio.org, site id 7) ─────────────────── -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u = "https://analytics.xtrusio.org/";
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '7']);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo -->
+
+    <!-- ─── Matomo Tag Manager (container VHvRl5Ee) ──────────────────── -->
+    <script>
+      var _mtm = window._mtm = window._mtm || [];
+      _mtm.push({ 'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start' });
+      (function() {
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = 'https://analytics.xtrusio.org/js/container_VHvRl5Ee.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Tag Manager -->
+
+    <!-- ─── Zoho PageSense (heatmaps, session recording, A/B tests) ──── -->
+    <script type="text/javascript">(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/imapro/bc8420c6a6e94c48b028499736535892.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>
+    <!-- End Zoho PageSense -->
+
+    <!-- ─── SPA page-view tracker (Matomo) ────────────────────────────────
+         The app is a hash-router SPA, so without this every route change
+         (M1 → M2, /settings, /reportv3, etc.) would be invisible to
+         analytics — only the initial load would register. On every
+         hashchange we tell Matomo: "the URL just changed, re-count it as
+         a page view."
+    -->
+    <script>
+      (function () {
+        if (typeof window === "undefined") return;
+        function trackSpaView() {
+          if (!window._paq) return;
+          window._paq.push(['setCustomUrl', window.location.href]);
+          window._paq.push(['setDocumentTitle', document.title]);
+          window._paq.push(['trackPageView']);
+        }
+        window.addEventListener('hashchange', trackSpaView);
+      })();
+    </script>
+    <script type="module" crossorigin src="/zeliot-software/zeliot/perception/assets/index-DabEqyJf.js"></script>
+    <link rel="stylesheet" crossorigin href="/zeliot-software/zeliot/perception/assets/index-cz5us6cf.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
